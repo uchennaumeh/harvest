@@ -1,0 +1,168 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <title> Harvester Control Center Data Collector Pro </title>            
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        
+        <link rel="stylesheet" type="text/css" id="theme" href="Atlant/html/css/theme-default.css"/>
+    </head>
+    <body>
+        
+        <div class="page-container">
+            
+            <div class="page-sidebar">
+                <ul class="x-navigation">
+                    <li class="xn-profile">
+                        <div style="padding:12px;padding-left:40px;padding-right:32px;">
+                            <asp:Image ID="Image2" runat="server" ImageUrl="~/images/DangoteWhyt.png" Width="92%" />
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="dashboard.aspx"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
+                    </li>                    
+                   
+                    <li class="xn-openable" id="usermanagement" runat="server" visible="true">
+                        <a href="#"><span class="fa fa-users"></span> <span class="xn-text"> User Management </span></a>
+                        <ul>
+                            <li id="AllUsers" runat="server" visible="true">
+                                <a href="Users.aspx"><span class="fa fa-users"></span> All Users <span class="xn-text"></span></a>
+                            </li>
+                            <li id="AddUser" runat="server" visible="true">
+                                <a href="usermanagement.aspx"><span class="fa fa-plus"></span> Add User <span class="xn-text"></span></a>
+                            </li>
+                            <li id="resetP" runat="server" visible="true">
+                                <a href="passwordReset.aspx"><span class="fa fa-refresh"></span> Reset Password <span class="xn-text"></span></a>
+                            </li>
+                           <li id="enableUser" runat="server" visible="true">
+                                <a href="EnableUser.aspx"><span class="fa fa-refresh"></span> Enable User <span class="xn-text"></span></a>
+                            </li>
+                           <li id="disableUser" runat="server" visible="true">
+                                <a href="DisableUser.aspx"><span class="fa fa-refresh"></span> Disable User <span class="xn-text"></span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="xn-openable" id="Weighment" runat="server" visible="true">
+                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Control Center</span></a>
+                        <ul>
+                            <li id="weighin" runat="server" visible="true"><a href="Ticketing.aspx"><span class="fa fa-sign-in"></span>Truck Ticketing</a></li>
+                            <li id="weighout" runat="server" visible="true"><a href="offloading.aspx"><span class="fa fa-truck"></span> Truck Offloading </a></li>
+                        </ul>
+                    </li>
+                    <li id="DetailsEdit" runat="server" visible="true">
+                        <a href="TransView.aspx"><span class="fa fa-edit"></span> <span class="xn-text">Details Edit</span></a>
+                    </li>
+                    <li id="Reprint" runat="server" visible="true">
+                        <a href="RePrintTicket.aspx"><span class="fa fa-print"></span> <span class="xn-text">Re-Print Tickets</span></a>
+                    </li>
+                    <li class="xn-openable" id="reports" runat="server" visible="true">
+                        <a href="#"><span class="fa fa-sitemap"></span> <span class="xn-text">Reports</span></a>
+                        <ul> 
+                            <li id="weighoutRpt" runat="server" visible="true"><a href="rptTimeOut.aspx"><span class="fa fa-truck"></span> Transactions</a></li>
+                            <li id="DailyTrans" runat="server" visible="true"><a href="DailyTrans.aspx"><span class="fa fa-file"></span> Daily Transaction</a></li>
+                            <li id="transCh" runat="server" visible="true"><a href="ChangeAudit.aspx"><span class="fa fa-exchange"></span> Transaction Changes</a></li>
+                            <li id="UserTicket" runat="server" visible="true"><a href="userTicketRpt.aspx"><span class="fa fa-ticket"></span> Your Ticketing</a></li>
+                            <li id="userOffload" runat="server" visible="true"><a href="userOffloadRpt.aspx"><span class="fa fa-flash"></span> Your Offloads</a></li>
+                            <li id="DriverReport" runat="server" visible="false"><a href="#"><span class="fa fa-file"></span>Drivers report</a></li>
+                            <li id="DailyReport" runat="server" visible="false"><a href="#"><span class="fa fa-ellipsis-h"></span>Daily Report</a></li>                            
+                            <li id="MonthlyWeigh" runat="server" visible="false"><a href="#"><span class="fa fa-calendar"></span>Monthly Weigh</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="xn-openable" id="Administration" runat="server" visible="true">
+                        <a href="#"><span class="fa fa-gears"></span> <span class="xn-text">Setup</span></a>
+                        <ul> 
+                            <li id="TruckCreate" runat="server" visible="true"><a href="CreateTruck.aspx"><span class="fa fa-truck"></span> Truck Creation</a></li>
+                            <li id="ZoneCreate" runat="server" visible="true"><a href="CreateZone.aspx"><span class="fa fa-file"></span> Zone Creation</a></li>
+                            <li id="ShiftCreate" runat="server" visible="true"><a href="CreateShift.aspx"><span class="fa fa-exchange"></span> Shift Creation</a></li>
+                            <li id="EstateCreate" runat="server" visible="true"><a href="createEstate.aspx"><span class="fa fa-ticket"></span> Estate Creation</a></li>
+                            <li id="FieldCreate" runat="server" visible="true"><a href="createField.aspx"><span class="fa fa-flash"></span> Field Creation</a></li>
+                        <%--    <li id="Li7" runat="server" visible="false"><a href="#"><span class="fa fa-file"></span>Drivers report</a></li>
+                            <li id="Li8" runat="server" visible="false"><a href="#"><span class="fa fa-ellipsis-h"></span>Daily Report</a></li>                            
+                            <li id="Li9" runat="server" visible="false"><a href="#"><span class="fa fa-calendar"></span>Monthly Weigh</a></li>--%>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="page-content">
+                
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+
+                    <li class="Atlant/html/xn-icon-button pull-right" style="padding-top: 24px;padding-right: 20px;">
+
+                        <a href="logout.aspx" class="mb-control" data-box="#mb-signout"><span style="font-size:2rem;" class="fa fa-sign-out"></span></a>                        
+                    </li> 
+                </ul>
+
+                <div class="page-content-wrap" style="padding:24px;">
+                    <form id="form1" runat="server">
+                        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+
+                        </asp:ContentPlaceHolder>
+                    </form>
+                </div>
+            </div>            
+        </div>
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if you want to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="logout.aspx" class="btn btn-danger btn-lg">Yes</a>
+                            <button class="btn btn-success btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <script type="text/javascript" src="Atlant/html/js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="Atlant/html/js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
+      
+        <script type='text/javascript' src='Atlant/html/js/plugins/icheck/icheck.min.js'></script>        
+        <script type="text/javascript" src="Atlant/html/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="Atlant/html/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+        
+        <script type="text/javascript" src="Atlant/html/js/plugins/morris/raphael-min.js"></script>
+        <script type="text/javascript" src="Atlant/html/js/plugins/morris/morris.min.js"></script>       
+        <script type="text/javascript" src="Atlant/html/js/plugins/rickshaw/d3.v3.js"></script>
+        <script type="text/javascript" src="Atlant/html/js/plugins/rickshaw/rickshaw.min.js"></script>
+        <script type='text/javascript' src='Atlant/html/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+        <script type='text/javascript' src='Atlant/html/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>                
+        <script type='text/javascript' src='Atlant/html/js/plugins/bootstrap/bootstrap-datepicker.js'></script>                
+        <script type="text/javascript" src="Atlant/html/js/plugins/owl/owl.carousel.min.js"></script>                 
+        
+        <script type="text/javascript" src="Atlant/html/js/plugins/moment.min.js"></script>
+        <script type="text/javascript" src="Atlant/html/js/plugins/daterangepicker/daterangepicker.js"></script>
+
+        
+        <script type="text/javascript" src="Atlant/html/js/plugins.js"></script>        
+        <script type="text/javascript" src="Atlant/html/js/actions.js"></script>
+        
+        <script type="text/javascript" src="Atlant/html/js/demo_dashboard.js"></script>
+<style type="text/css">
+    .x-navigation.x-navigation-horizontal {
+        height: 100px;
+    }
+
+.x-navigation.x-navigation-horizontal > li > a:hover {
+    background: transparent;
+}
+</style>
+</body>
+</html>
